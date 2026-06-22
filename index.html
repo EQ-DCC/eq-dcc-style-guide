@@ -21,11 +21,13 @@ header {
   display: flex;
 }
 
-/* LEFT SIDEBAR */
+/* Sidebar */
 nav.sidebar {
-  width: 250px;
+  width: 280px;
   background: #f5f5f5;
   padding: 10px;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 nav.sidebar a {
@@ -36,22 +38,21 @@ nav.sidebar a {
   text-decoration: underline;
 }
 
-/* RIGHT CONTENT */
+/* Main */
 main {
   flex: 1;
   padding: 20px;
 }
 
-/* HIDE NON-MATCH */
 .hidden {
   display: none;
 }
 
+/* Highlight */
 mark {
   background: yellow;
 }
 </style>
-
 </head>
 
 <body>
@@ -59,9 +60,8 @@ mark {
 <!-- ✅ SEARCH BAR -->
 <div style="padding:10px;">
   <input id="q" placeholder="Search...">
-  <button data-action="
-  <button data-actionbutton>
-  <button data-action="expand-all <button data-action="collapseton>
+  <button data-action="searchtton data-action="clear-searchton data-action="expandn>
+  <button data-action="collapse-all
 </div>
 
 <header>
@@ -75,37 +75,51 @@ mark {
     <a class="toc-btn" data-target="scope">Scope</a>
     <a class="toc-btn" data-target="concept">Concept</a>
     <a class="toc-btn" data-target="task">Task</a>
+    <a class="toc-btn" data-target="reference">Reference</a>
+    <a class="toc-btn" data-target="cognitive">Cognitive Load</a>
   </nav>
 
   <!-- ✅ MAIN CONTENT -->
   <main>
 
-    <!-- ✅ SECTION 1 -->
+    <!-- ✅ Scope -->
     <details class="sec">
       <summary id="scope">Scope</summary>
-      <p>This style guide applies to all technical writers...</p>
+      <p>This style guide applies to all technical writers, engineers, SMEs, and stakeholders.</p>
+      <p>Content follows a structured documentation approach: Concept, Task, Reference.</p>
     </details>
 
-    <!-- ✅ SECTION 2 -->
+    <!-- ✅ Concept -->
     <details class="sec">
       <summary id="concept">Concept</summary>
-      <p>A concept explains what something is...</p>
+      <p>A concept explains what something is, how it works, or why it matters.</p>
+      <p>It provides the background knowledge before performing tasks.</p>
     </details>
 
-    <!-- ✅ SECTION 3 -->
+    <!-- ✅ Task -->
     <details class="sec">
       <summary id="task">Task</summary>
-      <p>A task explains how to perform an action...</p>
+      <p>A task describes how to perform an action using step-by-step procedures.</p>
     </details>
 
-    <!-- ✅ ADD MORE SECTIONS LIKE THIS -->
-    <!-- COPY YOUR ORIGINAL CONTENT INSIDE EACH SECTION -->
+    <!-- ✅ Reference -->
+    <details class="sec">
+      <summary id="reference">Reference</summary>
+      <p>Reference content includes specifications, parameters, tables, and structured data.</p>
+    </details>
+
+    <!-- ✅ Cognitive Load -->
+    <details class="sec">
+      <summary id="cognitive">Cognitive Load</summary>
+      <p>Cognitive load refers to the mental effort required to process information.</p>
+      <p>Reducing unnecessary information improves user understanding.</p>
+    </details>
 
   </main>
 
 </div>
 
-<!-- ✅ LOAD JS -->
+<!-- ✅ JS -->
 <script src="eq_dcc.js"></script>
 
 </body>
