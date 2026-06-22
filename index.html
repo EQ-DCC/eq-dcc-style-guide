@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <title>EQ DCC Style Guide</title>
 
 <style>
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   margin: 0;
 }
 
+/* Header */
 header {
   background: #3b74d7;
   color: white;
   padding: 15px;
 }
 
+/* Layout */
 .container {
   display: flex;
 }
 
 /* Sidebar */
 nav.sidebar {
-  width: 280px;
-  background: #f5f5f5;
-  padding: 10px;
+  width: 300px;
+  background: #f7f7f7;
+  padding: 15px;
   height: 100vh;
   overflow-y: auto;
 }
 
 nav.sidebar a {
   display: block;
-  padding: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
   color: blue;
   text-decoration: underline;
 }
 
-/* Main */
+/* Content */
 main {
   flex: 1;
   padding: 20px;
@@ -48,20 +49,36 @@ main {
   display: none;
 }
 
-/* Highlight */
 mark {
   background: yellow;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px 0;
+}
+
+td, th {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+th {
+  background: #eee;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ SEARCH BAR -->
+<!-- ✅ SEARCH -->
 <div style="padding:10px;">
   <input id="q" placeholder="Search...">
-  <button data-action="searchtton data-action="clear-searchton data-action="expandn>
-  <button data-action="collapse-all
+  <button data-actionn>
+  <button dataClear</button>
+  <button data-action="expand-all <button data-action="all</button>
 </div>
 
 <header>
@@ -70,57 +87,100 @@ mark {
 
 <div class="container">
 
-  <!-- ✅ SIDEBAR -->
-  <nav class="sidebar">
-    <a class="toc-btn" data-target="scope">Scope</a>
-    <a class="toc-btn" data-target="concept">Concept</a>
-    <a class="toc-btn" data-target="task">Task</a>
-    <a class="toc-btn" data-target="reference">Reference</a>
-    <a class="toc-btn" data-target="cognitive">Cognitive Load</a>
-  </nav>
+<!-- ✅ SIDEBAR -->
+<nav class="sidebar">
+  <a class="toc-btn" data-target="scope">Scope</a>
+  <a class="toc-btn" data-target="concept">Concept</a>
+  <a class="toc-btn" data-target="task">Task</a>
+  <a class="toc-btn" data-target="reference">Reference</a>
+  <a class="toc-btn" data-target="activevoice">Active Voice</a>
+  <a class="toc-btn" data-target="cognitive">Cognitive Load</a>
+</nav>
 
-  <!-- ✅ MAIN CONTENT -->
-  <main>
+<!-- ✅ CONTENT -->
+<main>
 
-    <!-- ✅ Scope -->
-    <details class="sec">
-      <summary id="scope">Scope</summary>
-      <p>This style guide applies to all technical writers, engineers, SMEs, and stakeholders.</p>
-      <p>Content follows a structured documentation approach: Concept, Task, Reference.</p>
-    </details>
+<!-- ✅ SCOPE -->
+<details class="sec">
+  <summary id="scope">Scope</summary>
 
-    <!-- ✅ Concept -->
-    <details class="sec">
-      <summary id="concept">Concept</summary>
-      <p>A concept explains what something is, how it works, or why it matters.</p>
-      <p>It provides the background knowledge before performing tasks.</p>
-    </details>
+  <p>This style guide applies to all technical writers, engineers, subject matter experts (SMEs), and stakeholders.</p>
 
-    <!-- ✅ Task -->
-    <details class="sec">
-      <summary id="task">Task</summary>
-      <p>A task describes how to perform an action using step-by-step procedures.</p>
-    </details>
+  <ul>
+    <li>Prevents information overload</li>
+    <li>Supports structured documentation</li>
+    <li>Reduces cognitive load</li>
+  </ul>
 
-    <!-- ✅ Reference -->
-    <details class="sec">
-      <summary id="reference">Reference</summary>
-      <p>Reference content includes specifications, parameters, tables, and structured data.</p>
-    </details>
+</details>
 
-    <!-- ✅ Cognitive Load -->
-    <details class="sec">
-      <summary id="cognitive">Cognitive Load</summary>
-      <p>Cognitive load refers to the mental effort required to process information.</p>
-      <p>Reducing unnecessary information improves user understanding.</p>
-    </details>
+<!-- ✅ CONCEPT -->
+<details class="sec">
+  <summary id="concept">Concept</summary>
 
-  </main>
+  <table>
+    <tr><th>Definition</th><td>A concept explains what something is and why it matters.</td></tr>
+    <tr><th>Purpose</th><td>Provide background knowledge before tasks.</td></tr>
+    <tr><th>Examples</th><td>System Overview, Safety</td></tr>
+  </table>
 
+</details>
+
+<!-- ✅ TASK -->
+<details class="sec">
+  <summary id="task">Task</summary>
+
+  <table>
+    <tr><th>Definition</th><td>A task describes how to perform something.</td></tr>
+    <tr><th>Characteristic</th><td>Step-by-step procedure</td></tr>
+    <tr><th>Example</th><td>Filter replacement procedure</td></tr>
+  </table>
+
+</details>
+
+<!-- ✅ REFERENCE -->
+<details class="sec">
+  <summary id="reference">Reference</summary>
+
+  <table>
+    <tr><th>Definition</th><td>Provides structured factual information.</td></tr>
+    <tr><th>Examples</th><td>Tables, specifications, error codes</td></tr>
+  </table>
+
+</details>
+
+<!-- ✅ ACTIVE VOICE -->
+<details class="sec">
+  <summary id="activevoice">Active Voice</summary>
+
+  <p>Use active voice to improve clarity.</p>
+
+  <table>
+    <tr><th>Example (Good)</th><td>Tighten the connector</td></tr>
+    <tr><th>Example (Avoid)</th><td>The connector should be tightened</td></tr>
+  </table>
+
+</details>
+
+<!-- ✅ COGNITIVE LOAD -->
+<details class="sec">
+  <summary id="cognitive">Cognitive Load</summary>
+
+  <p>Cognitive load refers to the mental effort required to process information.</p>
+
+  <ul>
+    <li>Keep sentences short</li>
+    <li>Use clear structure</li>
+    <li>Avoid unnecessary information</li>
+  </ul>
+
+</details>
+
+</main>
 </div>
 
 <!-- ✅ JS -->
-<script src="eq_dcc.js"></script>
+eq_dcc.js>
 
 </body>
 </html>
