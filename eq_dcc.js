@@ -21,24 +21,45 @@ let currentIndex = 0;
   const input=document.querySelector('#q');
   const sections=[...document.querySelectorAll('details.sec')];
   function clearMarks(root){ root.querySelectorAll('mark').forEach(m=>{ const t=document.createTextNode(m.textContent); m.replaceWith(t); }); }
-  function highlight(el, q) {
-  const safe = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(safe, 'gi');
+  function highlight(el, q){
+  const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+    acceptNode: n => n.nodeValue.trim()
+      ? NodeFilter.FILTER_ACCEPT
+      : NodeFilter.FILTER_REJECT
+  });
 
-  const walker = document.createTreeWalker(
-    el,
-    NodeFilter.SHOW_TEXT,
-    null
-  );
-
+  const hits = [];
   let node;
-  while (node = walker.nextNode()) {
-    const text = node.nodeValue;
-    if (!re.test(text)) continue;
 
-    const span = document.createElement('span');
-    span.innerHTML = text.replace(re, m => `<mark>${m}</mark>`);
-    node.parentNode.replaceChild(span, node);
+  while (node = walker.nextNode()) {
+    let m;
+    re.lastIndex = 0;
+    const txt = node.nodeValue;
+
+    while ((m = re.exec(txt))) {
+      hits.push({ n: node, start: m.index, end: m.index + m[0].length });
+    }
+  }
+
+  for (let i = hits.length - 1; i >= 0; i--) {
+    const h = hits[i];
+    const n = h.n;
+
+    const before = n.nodeValue.slice(0, h.start);
+    const mid = n.nodeValue.slice(h.start, h.end);
+    const after = n.nodeValue.slice(h.end);
+
+    const frag = document.createDocumentFragment();
+    if (before) frag.appendChild(document.createTextNode(before));
+
+    const mark = document.createElement('mark');
+    mark.textContent = mid;
+    frag.appendChild(mark);
+
+    if (after) frag.appendChild(document.createTextNode(after));
+
+    n.parentNode.replaceChild(frag, n);
   }
 }
     const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
@@ -63,6 +84,15 @@ let currentIndex = 0;
     if(sec.textContent.toLowerCase().includes(q.toLowerCase())){
       sec.open=true;
       highlight(sec,q);
+allMarks = document.querySelectorAll("mark");
+currentIndex = 0;
+
+if (allMarks.length > 0) {
+  allMarks[0].scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
     } else {
       sec.classList.add('hidden');
     }
@@ -91,16 +121,21 @@ function scrollToMatch(index){
     sections.forEach(sec=>{ if(sec.textContent.toLowerCase().includes(q.toLowerCase())){ sec.open=true; highlight(sec,q);} else { sec.classList.add('hidden'); } });
   }
   function clearSearch(){ if(!input) return; input.value=''; sections.forEach(sec=>{ sec.classList.remove('hidden'); clearMarks(sec); }); }
-  input?.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){
+  input?.addEventListener('keydown', (e)=>{ if (e.key === 'Enter') {
   e.preventDefault();
 
-  if(allMarks.length === 0){
+  if (allMarks.length === 0) {
     runSearch();
   } else {
     currentIndex = (currentIndex + 1) % allMarks.length;
-    scrollToMatch(currentIndex);
+
+    allMarks[currentIndex].scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
   }
 }
+
   document.body.addEventListener('click',e=>{
     if(e.target.matches('[data-action="search"]')) { runSearch(); }
     if(e.target.matches('[data-action="clear-search"]')) { clearSearch(); }
