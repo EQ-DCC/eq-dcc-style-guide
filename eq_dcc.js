@@ -24,9 +24,6 @@ let currentIndex = 0;
 const input = document.querySelector('#q');
 const sections = [...document.querySelectorAll('details.sec')];
 
-let allMarks = [];
-let currentIndex = 0;
-
 // ✅ remove highlights
 function clearMarks(root) {
   root.querySelectorAll('mark').forEach(m => {
