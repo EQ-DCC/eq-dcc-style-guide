@@ -2162,5 +2162,55 @@ User Interface (UI)</p>
 <button class='back-to-top' title='Back to top'>↑</button>
 <script src="assets/eq_dcc.js"></script>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchBtn = document.getElementById("searchBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const expandBtn = document.getElementById("expandAll");
+    const collapseBtn = document.getElementById("collapseAll");
+    const input = document.getElementById("searchInput");
+    const content = document.getElementById("content");
+
+    // ✅ SEARCH
+    if (searchBtn) {
+        searchBtn.addEventListener("click", function () {
+            const keyword = input.value.toLowerCase();
+
+            const elements = content.querySelectorAll("*");
+            elements.forEach(el => {
+                if (el.children.length === 0) {
+                    const text = el.innerText.toLowerCase();
+                    el.style.backgroundColor = text.includes(keyword) ? "yellow" : "";
+                }
+            });
+        });
+    }
+
+    // ✅ CLEAR
+    if (clearBtn) {
+        clearBtn.addEventListener("click", function () {
+            input.value = "";
+            const elements = content.querySelectorAll("*");
+            elements.forEach(el => el.style.backgroundColor = "");
+        });
+    }
+
+    // ✅ EXPAND ALL
+    if (expandBtn) {
+        expandBtn.addEventListener("click", function () {
+            document.querySelectorAll("details").forEach(d => d.open = true);
+        });
+    }
+
+    // ✅ COLLAPSE ALL
+    if (collapseBtn) {
+        collapseBtn.addEventListener("click", function () {
+            document.querySelectorAll("details").forEach(d => d.open = false);
+        });
+    }
+
+});
+</script>
 </body>
 </html>
