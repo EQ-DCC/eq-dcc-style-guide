@@ -124,3 +124,5 @@ document.body.addEventListener('click', e => {
   if (e.target.matches('[data-action="collapse-all"]')) sections.forEach(d => d.open = false);
 });
 
+});
+
