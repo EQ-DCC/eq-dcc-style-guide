@@ -54,9 +54,6 @@ addEventListener('DOMContentLoaded',()=>{
 }
 ``
 
-let allMarks = [];
-let currentIndex = 0;
-
   function runSearch(){
     const q=(input?.value||'').trim();
     sections.forEach(sec=>{ sec.classList.remove('hidden'); clearMarks(sec); });
