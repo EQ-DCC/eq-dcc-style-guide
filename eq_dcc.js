@@ -20,7 +20,14 @@ addEventListener('DOMContentLoaded',()=>{
   const sections=[...document.querySelectorAll('details.sec')];
   let allMarks = [];
   let currentIndex = 0;
-  function clearMarks(root){ root.querySelectorAll('mark').forEach(m=>{ const t=document.createTextNode(m.textContent); m.replaceWith(t); }); }
+  function clearMarks(root){ root.querySelectorAll('mark').forEach(mark=>{  const parent = mark.parentNode;
+
+        parent.replaceChild(
+            document.createTextNode(mark.textContent),
+            mark
+        );
+
+        parent.normalize(); }); }
   function highlight(el, q){
   const safe = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const re = new RegExp(`\\b${safe}\\b`, 'gi');
@@ -52,7 +59,6 @@ addEventListener('DOMContentLoaded',()=>{
     node.parentNode.replaceChild(fragment, node);
   }
 }
-``
 
   function runSearch(){
     const q=(input?.value||'').trim();
@@ -80,20 +86,32 @@ function scrollToMatch(i) {
     block: "center"
   });
 }
-}
-``
-  function clearSearch(){ if(!input) return; input.value=''; sections.forEach(sec=>{ sec.classList.remove('hidden'); clearMarks(sec); }); }
-  input?.addEventListener('keydown', (e)=>{
-  if(e.key==='Enter'){
+
+let lastQuery = "";
+
+input?.addEventListener("keydown", e => {
+
+    if (e.key !== "Enter") return;
+
     e.preventDefault();
 
-    if (allMarks.length === 0) {
-      runSearch();
-    } else {
-      currentIndex = (currentIndex + 1) % allMarks.length;
-      scrollToMatch(currentIndex);
+    const q = input.value.trim();
+
+    if (q !== lastQuery) {
+
+        lastQuery = q;
+
+        runSearch();
+
+    } else if (allMarks.length) {
+
+        currentIndex =
+            (currentIndex + 1) % allMarks.length;
+
+        scrollToMatch(currentIndex);
+
     }
-  }
+
 });
   document.body.addEventListener('click',e=>{
     if(e.target.matches('[data-action="search"]')) { runSearch(); }
