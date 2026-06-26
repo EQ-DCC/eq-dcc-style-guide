@@ -54,26 +54,6 @@ mark.active {
   width: auto;
 }
 
-<div class="top-controls">
-
-  <!-- ✅ LEFT (EQ DCC LOGO + TITLE) -->
-  <div class="left">
-    <img src="eq_dcc_logo.png" alt="EQ DCC Logo">
-    
-    <h1>
-      <a href="#purpose">
-        EQ DCC Style Guide
-      </a>
-    </h1>
-  </div>
-
-  <!-- ✅ RIGHT (AKRIBIS LOGO) -->
-  <div class="right">
-    <img src="akribis_logo.png" alt="Akribis Logo">
-  </div>
-
-</div>
-
 .container{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 48px)}
 nav.sidebar{border-right:1px solid var(--gray-200);padding:16px;background:#f7f9ff;position:sticky;top:48px;height:calc(100vh - 48px);overflow:auto}
 nav.sidebar h2{margin:0 0 12px 0;color:#0e1f4a}
@@ -104,69 +84,17 @@ details.sec{border:1px solid var(--gray-200);border-radius:8px;padding:8px 12px;
 </style>
 </head>
 <body>
-<body>
 
 <!-- ✅ SEARCH BAR -->
 <div style="margin: 10px;">
-  <input type="text" id="searchInput" placeholder="Search..." style="padding:6px; width:250px;">
-  <button id="searchBtn">Search</button>
-  <button id="clearBtn">Clear</button>
+  <input type="text" id="q" placeholder="Search..." style="padding:6px; width:250px;">
+  <button data-action="search">
+  <button data-action="clear-search">
 </div>
 
 <!-- ✅ CONTENT WRAPPER -->
 <div id="content">
 
-
-<!doctype html>
-<html lang='en'>
-<head>
-<meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>EQ DCC Style Guide — Interactive Manual</title>
-<style>
-
-:root{--brand-dark:#161878;--brand-blue:#3B82F6;--brand-orange:#FE8D01;--gray-50:#fafbff;--gray-100:#f2f4fb;--gray-200:#e6e9f2;--gray-300:#d3d8e6;--text:#1b1d25;--table-border:#7F7F7F;--table-header:#D0CECE}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
-.top-controls{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--gray-200);gap:12px}
-.top-controls .left{display:flex;align-items:center;gap:12px}
-.top-controls .left img{height:40px;width:auto}
-.top-controls h1{margin:0;color:var(--brand-dark)}
-.top-controls .actions{display:flex;gap:8px;align-items:center}
-.top-controls input[type=search]{padding:6px 10px;border:1px solid var(--gray-300);border-radius:6px;min-width:240px}
-.top-controls button{padding:6px 12px;border:1px solid var(--brand-dark);background:#fff;color:var(--brand-dark);border-radius:6px;cursor:pointer}
-.top-controls button.primary{background:var(--brand-orange);border-color:var(--brand-orange);color:#fff}
-.container{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 48px)}
-nav.sidebar{border-right:1px solid var(--gray-200);padding:16px;background:#f7f9ff;position:sticky;top:48px;height:calc(100vh - 48px);overflow:auto}
-nav.sidebar h2{margin:0 0 12px 0;color:#0e1f4a}
-nav.sidebar .toc,nav.sidebar .toc ul{list-style:none!important;padding-left:0;margin:0}
-nav.sidebar .toc li{margin:6px 0}
-nav.sidebar .toc-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--gray-200);border-radius:8px;background:#fff;color:#0e1f4a;text-decoration:none;box-shadow:0 1px 0 rgba(0,0,0,.03)}
-nav.sidebar .toc-btn:hover{border-color:var(--brand-blue);box-shadow:0 0 0 2px rgba(59,130,246,.15)}
-nav.sidebar .toc-btn.l1{font-weight:700;background:rgba(59,130,246,.12);border-color:var(--brand-blue)}
-nav.sidebar .toc-btn.l2{padding-left:20px}
-nav.sidebar .toc-btn.l3{padding-left:32px}
-nav.sidebar .toc-btn.l4{padding-left:44px}
-main.content{padding:24px}
-main.content ul{list-style:disc;margin-left:1.25em}
-main.content ul ul{list-style:circle}
-main.content a{color:var(--brand-blue);text-decoration:underline}
-.caption{color:var(--brand-blue);font-style:italic}
-.table-wrap.styled{margin:12px 0;overflow:auto}
-.table-wrap.styled table.styled{border-collapse:collapse;width:100%;background:#fff}
-.table-wrap.styled th{border:1px solid var(--table-border);padding:8px;vertical-align:top;background:var(--table-header);font-weight:700;color:#000}
-.table-wrap.styled td{border:1px solid var(--table-border);padding:8px;vertical-align:top}
-.table-wrap.styled tr:nth-child(even) td{background:#fafafa}
-summary{list-style:none}
-details>summary h1,details>summary h2,details>summary h3,details>summary h4{display:inline}
-details.sec{border:1px solid var(--gray-200);border-radius:8px;padding:8px 12px;margin:10px 0;background:#fff}
-.section-body{padding:4px 2px 6px 2px}
-.back-to-top{position:fixed;right:16px;bottom:16px;background:var(--brand-blue);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:none}
-.back-to-top.show{display:block}
-</style>
-</head>
-<body>
 
 <div class="top-controls">
 
