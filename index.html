@@ -10,7 +10,7 @@
 :root{--brand-dark:#161878;--brand-blue:#3B82F6;--brand-orange:#FE8D01;--gray-50:#fafbff;--gray-100:#f2f4fb;--gray-200:#e6e9f2;--gray-300:#d3d8e6;--text:#1b1d25;--table-border:#7F7F7F;--table-header:#D0CECE}
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;padding-top: 125px;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
+body{margin:0;padding-top: 120px;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
 .top-controls{
     display:flex;
     justify-content:space-between;
@@ -34,17 +34,17 @@ body{margin:0;padding-top: 125px;font:16px/1.6 system-ui,-apple-system,Segoe UI,
     top: 0;
     left: 0;
     right: 0;
-    z-index:1000;
 
     display:flex;
     align-items:center;
     gap:10px;
 
-    padding:10px 20px;
+    padding:10px 24px;
 
     background:#fff;
-
     border-bottom:1px solid var(--gray-200);
+
+    z-index:1002;
 }
 .top-controls .left img{height:40px;width:auto}
 .top-controls h1{
@@ -124,10 +124,6 @@ details.sec{border:1px solid var(--gray-200);border-radius:8px;padding:8px 12px;
         Clear
     </button>
 </div>
-
-<!-- ✅ CONTENT WRAPPER -->
-<div id="content">
-
 
 <div class="top-controls">
 
