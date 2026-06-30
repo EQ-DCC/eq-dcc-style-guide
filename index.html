@@ -12,9 +12,16 @@
 html,body{height:100%}
 body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
 .top-controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 28px;
+    background:var(--brand-blue);
+}
+.top-controls .left{
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  gap:18px;
   padding:16px 28px;
   background: var(--brand-blue);   /* ✅ ADD THIS */
   color: #fff;                     /* ✅ ADD THIS */
@@ -35,7 +42,7 @@ body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helve
 
     border-bottom:1px solid var(--gray-200);
 
-    box-shadow:0 2px 6px rgba(0,0,0,.08);
+    box-shadow:0 2px 5px rgba(0,0,0,.06);
 }
 .top-controls .left img{height:40px;width:auto}
 .top-controls h1{
@@ -71,7 +78,7 @@ mark.active {
   width: auto;
 }
 
-.container{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 48px)}
+.container{display:grid;grid-template-columns:320px 1fr;min-height:100vh;}
 nav.sidebar{border-right:1px solid var(--gray-200);padding:16px;background:#f7f9ff;position:sticky;top:48px;height:calc(100vh - 48px);overflow:auto}
 nav.sidebar h2{margin:0 0 12px 0;color:#0e1f4a}
 nav.sidebar .toc,nav.sidebar .toc ul{list-style:none!important;padding-left:0;margin:0}
