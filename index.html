@@ -10,7 +10,7 @@
 :root{--brand-dark:#161878;--brand-blue:#3B82F6;--brand-orange:#FE8D01;--gray-50:#fafbff;--gray-100:#f2f4fb;--gray-200:#e6e9f2;--gray-300:#d3d8e6;--text:#1b1d25;--table-border:#7F7F7F;--table-header:#D0CECE}
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
+body{margin:0;padding-top: 125px;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
 .top-controls{
     display:flex;
     justify-content:space-between;
@@ -18,9 +18,11 @@ body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helve
     background:#3B82F6;
     padding:12px 32px;
 
-    position: sticky;
-    top: 58px;      /* Adjust if your search bar is taller or shorter */
-    z-index: 999;
+    position: fixed;
+    top: 53px;   /* directly below the search bar */
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 .top-controls .left{
   display:flex;
@@ -28,8 +30,10 @@ body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helve
   gap:12px;
 }
 .search-toolbar{
-    position:sticky;
-    top:0;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index:1000;
 
     display:flex;
