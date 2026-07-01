@@ -167,7 +167,4 @@ input?.addEventListener("keydown", e => {
 
 });
 
-    if(e.target.matches('[data-action="expand-all"]')) { sections.forEach(d=>d.open=true); }
-    if(e.target.matches('[data-action="collapse-all"]')) { sections.forEach(d=>d.open=false); }
-  });
 });
