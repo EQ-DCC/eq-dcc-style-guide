@@ -131,24 +131,29 @@ input?.addEventListener("keydown", e => {
     }
 
 }
-function clearSearch(){
+function clearSearch() {
 
+    // Clear the input box
     input.value = "";
 
+    // Reset search state
     lastQuery = "";
-
     currentIndex = 0;
-
     allMarks = [];
 
+    // Show all sections and remove highlights
     sections.forEach(sec => {
-
         sec.classList.remove("hidden");
-
         clearMarks(sec);
-
     });
 
+    // Remove any active highlight
+    document.querySelectorAll("mark").forEach(mark => {
+        mark.classList.remove("active");
+    });
+
+    // Put the cursor back in the search box
+    input.focus();
 }
     if(e.target.matches('[data-action="expand-all"]')) { sections.forEach(d=>d.open=true); }
     if(e.target.matches('[data-action="collapse-all"]')) { sections.forEach(d=>d.open=false); }
