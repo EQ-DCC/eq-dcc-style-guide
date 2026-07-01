@@ -114,8 +114,42 @@ input?.addEventListener("keydown", e => {
 
 });
   document.body.addEventListener('click',e=>{
-    if(e.target.matches('[data-action="search"]')) { runSearch(); }
-    if(e.target.matches('[data-action="clear-search"]')) { clearSearch(); }
+   if (e.target.matches('[data-action="search"]')) {
+
+    const q = input.value.trim();
+
+    if (q !== lastQuery) {
+
+        lastQuery = q;
+        runSearch();
+
+    } else if (allMarks.length) {
+
+        currentIndex = (currentIndex + 1) % allMarks.length;
+        scrollToMatch(currentIndex);
+
+    }
+
+}
+function clearSearch(){
+
+    input.value = "";
+
+    lastQuery = "";
+
+    currentIndex = 0;
+
+    allMarks = [];
+
+    sections.forEach(sec => {
+
+        sec.classList.remove("hidden");
+
+        clearMarks(sec);
+
+    });
+
+}
     if(e.target.matches('[data-action="expand-all"]')) { sections.forEach(d=>d.open=true); }
     if(e.target.matches('[data-action="collapse-all"]')) { sections.forEach(d=>d.open=false); }
   });
